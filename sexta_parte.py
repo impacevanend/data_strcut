@@ -11,14 +11,14 @@ def descargar_datos(url):
         raise Exception(f"Error al descargar los datos desde {url}")
 
 def limpiar_y_categorizar_datos(df):
-    # Verificar y tratar valores faltantes
+    
     if df.isnull().values.any():
         df = df.dropna()
 
-    # Eliminar filas duplicadas
+    
     df = df.drop_duplicates()
 
-    # Eliminar valores atípicos
+  
     columnas_numericas = df.select_dtypes(include=['number']).columns
     for columna in columnas_numericas:
         Q1 = df[columna].quantile(0.25)
@@ -27,7 +27,7 @@ def limpiar_y_categorizar_datos(df):
         filtro = (df[columna] >= Q1 - 1.5 * IQR) & (df[columna] <= Q3 + 1.5 * IQR)
         df = df.loc[filtro]
 
-    # Categorizar por edades
+
     condiciones = [
         (df['age'] <= 12),
         (df['age'] <= 19),

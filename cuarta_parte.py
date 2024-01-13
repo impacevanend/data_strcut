@@ -15,7 +15,6 @@ def descargar_y_guardar_csv(url, nombre_archivo):
     else:
         print("Error al descargar el archivo")
 
-# Usar la función para descargar y guardar el archivo CSV
 url = 'https://huggingface.co/datasets/mstz/heart_failure/raw/main/heart_failure_clinical_records_dataset.csv'
 nombre_archivo = 'heart_failure_clinical_records_dataset.csv'
 descargar_y_guardar_csv(url, nombre_archivo)

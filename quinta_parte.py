@@ -18,18 +18,18 @@ def eliminar_valores_atipicos(df, columnas):
     return df
 
 def preparar_y_guardar_datos(df, archivo_salida):
-    # Verificar y tratar valores faltantes
+   
     if df.isnull().values.any():
         df = df.dropna()
 
-    # Eliminar filas duplicadas
+  
     df = df.drop_duplicates()
 
-    # Eliminar valores atípicos
+  
     columnas_numericas = df.select_dtypes(include=['number']).columns
     df = eliminar_valores_atipicos(df, columnas_numericas)
 
-    # Categorizar por edades
+   
     condiciones = [
         (df['age'] <= 12),
         (df['age'] <= 19),
@@ -40,10 +40,10 @@ def preparar_y_guardar_datos(df, archivo_salida):
     categorias = ['Niño', 'Adolescente', 'Jóvenes adulto', 'Adulto', 'Adulto mayor']
     df['categoria_edad'] = pd.cut(df['age'], bins=[0, 12, 19, 39, 59, float('inf')], labels=categorias, right=False)
 
-    # Guardar el DataFrame resultante
+ 
     df.to_csv(archivo_salida, index=False)
     print(f"Datos guardados en {archivo_salida}")
 
-# Uso de la función
+
 df = pd.read_csv('heart_failure_clinical_records_dataset.csv')
 preparar_y_guardar_datos(df, 'datos_limpios.csv')

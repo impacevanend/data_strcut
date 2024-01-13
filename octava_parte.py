@@ -33,10 +33,10 @@ plt.legend()
 plt.tight_layout()
 plt.show()
 
-# Parte 8: Gráficas de torta para distribuciones
+
 fig, axs = plt.subplots(2, 2, figsize=(10, 10))
 
-# Definir las distribuciones
+
 distribuciones = {
     'Anémicos': df['anaemia'].value_counts(),
     'Diabéticos': df['diabetes'].value_counts(),
@@ -45,10 +45,10 @@ distribuciones = {
 }
 
 
-# Crear las gráficas de torta
+
 for ax, (label, data) in zip(axs.flatten(), distribuciones.items()):
     ax.pie(data, labels=['No ' + label, label], autopct='%1.1f%%', startangle=90)
     ax.set_title(f'Distribución de {label}')
-    ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    ax.axis('equal')  
 plt.show()
 
