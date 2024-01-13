@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Suponiendo que 'df' es tu DataFrame luego de realizar el proceso de ETL
-df = pd.read_csv('heart_failure_clinical_records_dataset.csv') # Descomenta y reemplaza con el nombre de tu archivo CSV
+df = pd.read_csv('sexta_parte_datos.csv') # Descomenta y reemplaza con el nombre de tu archivo CSV
 
 # Graficar la distribución de edades con un histograma
 plt.figure(figsize=(10, 6))
